@@ -471,6 +471,7 @@ class Game {
 export async function initGame(username, room, isHost) {
   document.getElementById('app').style.display = 'none'; // Hide Auth UI
   document.getElementById('game-container').style.display = 'block'; // Show Game UI
+  document.body.style.overflow = 'hidden'; // Prevent scrolling
   
   // Load data
   let data = await getCharacter(username);
