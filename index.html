@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Realtime Registration</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://esm.sh/three@0.160.0",
+      "simplex-noise": "https://esm.sh/simplex-noise@4.0.1"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Auth UI -->
+  <main id="app">
+    <section id="status">
+      <div id="creator-status">Checking creator...</div>
+      <div id="local-role"></div>
+      <button id="logout-btn" style="display:none">Logout</button>
+    </section>
+
+    <section id="forms">
+      <div class="card" id="register-card">
+        <h3>Register</h3>
+        <input id="reg-username" placeholder="Username" maxlength="32" />
+        <input id="reg-password" placeholder="Password" type="password" />
+        <button id="reg-submit">Register</button>
+        <div class="note" id="reg-note"></div>
+      </div>
+
+      <div class="card" id="login-card">
+        <h3>Login</h3>
+        <input id="log-username" placeholder="Username" maxlength="32" />
+        <input id="log-password" placeholder="Password" type="password" />
+        <button id="log-submit">Login</button>
+        <div class="note" id="log-note"></div>
+      </div>
+    </section>
+
+    <section id="events-log" aria-live="polite"></section>
+  </main>
+
+  <!-- Game UI (Hidden by default) -->
+  <div id="game-container" style="display:none;">
+    <div id="hud-top">
+      <div class="bar-container">
+        <div id="hp-bar" class="bar hp"></div>
+        <span class="bar-text">HP</span>
+      </div>
+      <div class="bar-container">
+        <div id="mp-bar" class="bar mp"></div>
+        <span class="bar-text">MP</span>
+      </div>
+    </div>
+    
+    <div id="hud-stats">
+      <div>Level: <span id="stat-level">1</span></div>
+      <div>XP: <span id="stat-xp">0</span></div>
+    </div>
+
+    <div id="hud-quests">
+      <h4>Quests</h4>
+      <ul id="quest-list">
+        <li>Explore the world</li>
+      </ul>
+    </div>
+
+    <div id="hud-hotbar">
+      <div class="slot active">1</div>
+      <div class="slot">2</div>
+      <div class="slot">3</div>
+      <div class="slot">4</div>
+      <div class="slot">5</div>
+    </div>
+
+    <div id="hud-inventory" style="display:none;">
+      <h3>Inventory</h3>
+      <div id="inv-grid"></div>
+    </div>
+    
+    <button id="toggle-inv-btn">Inventory (I)</button>
+  </div>
+
+  <script type="module" src="main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
